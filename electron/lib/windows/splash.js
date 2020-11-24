@@ -1,9 +1,9 @@
 let _self = null;
 class Splash {
 
-    constructor(browser){
+    constructor(browser, screen){
         this.BrowserWindow = browser;
-
+        this.screen = screen;
         _self = this;
     }
 

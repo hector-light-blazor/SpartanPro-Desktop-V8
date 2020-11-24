@@ -1,17 +1,20 @@
-const { app, BrowserWindow } = require('electron')
+const { screen, app, BrowserWindow } = require('electron')
 const Splash = require("./lib/windows/splash")
 const Login = require("./lib/windows/login");
+
 
 
 //Is this windows....
 const isOSWindows = process.platform == "win32";
 
 //Setup Window SPlash..
-var initial = new Splash(BrowserWindow);
-var login = new Login(BrowserWindow);
+var initial = new Splash(BrowserWindow, screen);
+var login = new Login(BrowserWindow, screen);
 
 // Making sure the app is ready for rendering..
 app.whenReady().then(login.start);
+
+
 
 
 //If all windows are close quit the app..
