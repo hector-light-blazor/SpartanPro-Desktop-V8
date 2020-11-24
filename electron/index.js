@@ -1,35 +1,32 @@
 const { app, BrowserWindow } = require('electron')
+const Splash = require("./lib/windows/splash")
+const Login = require("./lib/windows/login");
 
-function createWindow () {
-  const win = new BrowserWindow({
-    width: 1000,
-    height: 928,
-    frame: false,
-    backgroundColor: "#00ffffff",
-    hasShadow: true,
-    transparent: true,
-    webPreferences: {
-      nodeIntegration: true
-    }
-  })
 
-  win.loadURL(
-      'http://localhost:4200/'
-  )
-  //win.loadFile('index.html')
-  //win.webContents.openDevTools()
-}
+//Is this windows....
+const isOSWindows = process.platform == "win32";
 
-app.whenReady().then(createWindow)
+//Setup Window SPlash..
+var initial = new Splash(BrowserWindow);
+var login = new Login(BrowserWindow);
 
+// Making sure the app is ready for rendering..
+app.whenReady().then(login.start);
+
+
+//If all windows are close quit the app..
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
+
+// If the app is activated show splash screen..
 app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow()
+    
+    //1.) Show the Splash...
+      login.start();
   }
 })
