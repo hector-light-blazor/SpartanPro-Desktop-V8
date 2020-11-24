@@ -8,7 +8,7 @@
     "electron": "^11.0.2"
   },
   "scripts": {
-    "start": "electron --enable-transparent-visuals .",
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Hector N Chapa Jr",
