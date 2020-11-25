@@ -1,9 +1,10 @@
 let _self = null;
 class Splash {
 
-    constructor(browser, screen){
+    constructor(browser, screen, root){
         this.BrowserWindow = browser;
         this.screen = screen;
+        this.root = root;
         _self = this;
     }
 
@@ -17,11 +18,8 @@ class Splash {
             hasShadow: true,
             transparent: true
           })
-    
-    
-          win.loadURL(
-            'http://localhost:4200/'
-        )
+
+          win.loadURL(`file://${_self.root}/app/splash-app/index.html`)
     
         win.once('ready-to-show', () =>{
             win.center();
