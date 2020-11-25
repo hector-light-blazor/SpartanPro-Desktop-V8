@@ -11,7 +11,7 @@ class Splash {
     start() {
         const win = new _self.BrowserWindow({
             width: 1000,
-            height: 928,
+            height: 680,
             frame: false,
             show: false,
             backgroundColor: "#00ffffff",
