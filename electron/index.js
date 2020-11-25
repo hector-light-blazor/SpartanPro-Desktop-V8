@@ -9,10 +9,10 @@ const isOSWindows = process.platform == "win32";
 
 //Setup Window SPlash..
 var splash = new Splash(BrowserWindow, screen, __dirname);
-var login = new Login(BrowserWindow, screen);
+var login = new Login(BrowserWindow, screen, __dirname);
 
 // Making sure the app is ready for rendering..
-app.whenReady().then(splash.start);
+app.whenReady().then(login.start);
 
 
 
@@ -30,6 +30,6 @@ app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     
     //1.) Show the Splash...
-      splash.start();
+      login.start();
   }
 })

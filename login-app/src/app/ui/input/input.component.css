@@ -1,0 +1,9 @@
+input[type="text"], input[type="password"]{
+    width: 240px;
+    height: 32px;
+    cursor: pointer;
+  }
+
+  input[type="text"]::placeholder, input[type="password"]::placeholder{
+    text-align: center;
+  }

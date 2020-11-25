@@ -14,6 +14,7 @@ class Splash {
             height: 680,
             frame: false,
             show: false,
+            resizable: false,
             backgroundColor: "#00ffffff",
             hasShadow: true,
             transparent: true

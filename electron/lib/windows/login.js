@@ -3,10 +3,11 @@ class Login{
 
 
 
-    constructor(browser, screen){
+    constructor(browser, screen, dir){
         this.BrowserWindow = browser;
         this.screen = screen;
-        this.height = 780;
+        this.root = dir;
+        this.height = 812;
         this.width = 375;
         _self = this;
     }
@@ -15,16 +16,17 @@ class Login{
     start() {
        
         const {width, height} = _self.screen.getPrimaryDisplay().workAreaSize;
-        if(_self.height < height){
-            console.log("YES I AM SMALLER")
+        if(_self.height > height){
+            console.log("YES I AM greater")
             _self.height = _self.height - 20;
         }
         const win = new _self.BrowserWindow({
             width: _self.width,
             height: _self.height,
             frame: false,
-            resizable: false,
             hasShadow: true,
+            maximizable: false,
+            resizable: false,
             transparent: true,
             backgroundColor: "#00ffffff"
         });

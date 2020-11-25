@@ -1,0 +1,156 @@
+.cntGrid{
+    display: grid;
+    background-color: white;
+    height: 100%;
+  }
+  .grid{
+
+    padding: 22px;
+  }
+  .grid:first-child{
+    display: grid;
+    grid-template-columns: 60% auto;
+    
+  }
+
+  .grid:nth-child(3){
+    display: grid;
+    height: 100px;
+    grid-template-columns: 70% auto;
+    padding: 10px;
+  }
+
+  .grid:last-child{
+    padding: 0;
+    margin: 0;
+    margin-right: 20px;
+    display: grid;
+    position: relative;
+    top: 64px;
+    height: 200px;
+    grid-template-columns: auto auto;
+  }
+
+  .title{
+     margin-top: 32px;
+     margin-left: 8px;
+     color: #3A3A3A;
+     font-weight: bold;
+     font-size: larger;
+  }
+
+  form{
+    background: white;
+    height: 232px;
+    filter: drop-shadow(0px 0px 2px #00000044);
+  }
+  #cntFRM {
+    display: grid;
+    grid-template-rows: auto auto;
+    margin: 0 auto;
+    width: 240px;
+    height: 100%;
+    text-align: center;
+  }
+
+  .gridFRM{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+ 
+
+  .round {
+    position: relative;
+}
+
+.round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.round label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+  background-color: #213970;
+  border-color: #213970;
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
+span{
+  font-weight: bold;
+  margin-left: 14px;
+  line-height: 28px;
+}
+  .btn{
+    background-color: #05173F;
+    color: white;
+    text-align: center;
+    height: 32px;
+    width: 160px;
+    font-weight: bold;
+  }
+  .btn:focus{
+    outline: none;
+  }
+  .btn:hover{
+    cursor: pointer;
+  }
+  .btnLogin{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin-right: 22px;
+  }
+
+  .btnFGPass{
+    position: relative;
+    left: -40px;
+    width: 164px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    text-align: right;
+    padding-right: 10px;
+  }
+
+
+  .footer:first-child{
+    position: relative;
+    left:-88px;
+    top: 14px;
+  }
+
+  #logoSP{
+    position: relative;
+    top:20px;
+  }
+
+  .titleApp{
+    color: #6F6F6F;
+  }
