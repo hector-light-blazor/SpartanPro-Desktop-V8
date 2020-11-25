@@ -24,6 +24,7 @@ class Login{
             width: _self.width,
             height: _self.height,
             frame: false,
+            show: false,
             hasShadow: true,
             maximizable: false,
             resizable: false,
