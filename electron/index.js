@@ -8,11 +8,11 @@ const Login = require("./lib/windows/login");
 const isOSWindows = process.platform == "win32";
 
 //Setup Window SPlash..
-var initial = new Splash(BrowserWindow, screen);
+var splash = new Splash(BrowserWindow, screen, __dirname);
 var login = new Login(BrowserWindow, screen);
 
 // Making sure the app is ready for rendering..
-app.whenReady().then(login.start);
+app.whenReady().then(splash.start);
 
 
 
@@ -30,6 +30,6 @@ app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     
     //1.) Show the Splash...
-      login.start();
+      splash.start();
   }
 })
