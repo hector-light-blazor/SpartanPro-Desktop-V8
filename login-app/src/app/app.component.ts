@@ -5,13 +5,13 @@ import { Component, OnInit} from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [trigger('myInsertRemoveTrigger', [
+  animations: [trigger('slideInOut', [
     transition(':enter', [
-      style({ opacity: 0 }),
-      animate('200ms', style({ opacity: 1 })),
+      style({ transform: 'translateY(-100%)' }),
+      animate('900ms ease-in', style({ transform: 'translateY(0%)'})),
     ]),
     transition(':leave', [
-      animate('400ms', style({ opacity: 0 }))
+      animate('200ms ease-in', style({ transform: 'translateY(-100%)' }))
     ])
   ])],
 })

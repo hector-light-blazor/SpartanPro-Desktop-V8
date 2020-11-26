@@ -49,67 +49,23 @@
     grid-template-rows: auto auto;
     margin: 0 auto;
     width: 240px;
-    height: 100%;
+    height: 120px;
     text-align: center;
+    position: relative;
+    top: 90px;
+
   }
 
   .gridFRM{
+   
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
- 
 
-  .round {
-    position: relative;
-}
-
-.round label {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-  height: 28px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 28px;
-}
-
-.round label:after {
-  border: 2px solid #fff;
-  border-top: none;
-  border-right: none;
-  content: "";
-  height: 6px;
-  left: 7px;
-  opacity: 0;
-  position: absolute;
-  top: 8px;
-  transform: rotate(-45deg);
-  width: 12px;
-}
-
-.round input[type="checkbox"] {
-  visibility: hidden;
-}
-
-.round input[type="checkbox"]:checked + label {
-  background-color: #213970;
-  border-color: #213970;
-}
-
-.round input[type="checkbox"]:checked + label:after {
-  opacity: 1;
-}
-
-span{
-  font-weight: bold;
-  margin-left: 14px;
-  line-height: 28px;
-}
   .btn{
+    border: 0;
     background-color: #05173F;
     color: white;
     text-align: center;
@@ -123,10 +79,15 @@ span{
   .btn:hover{
     cursor: pointer;
   }
+  #cntBTN{
+      width: calc(100vh - 50vh);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
   .btnLogin{
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    margin-right: 22px;
+    border-radius: 20px;
+    text-align: center;
   }
 
   .btnFGPass{
