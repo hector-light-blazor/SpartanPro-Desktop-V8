@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-forgot',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forgot.component.css']
 })
 export class ForgotComponent implements OnInit {
-
+  @Output() onback = new EventEmitter<null>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  goBack(): void{
+    this.onback.emit(null);
   }
 
 }

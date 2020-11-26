@@ -9,4 +9,4 @@
 <!-- <label>window: {{w}} <br> Height: {{h}}</label> -->
 <app-draggable ></app-draggable>
 <app-login  @myInsertRemoveTrigger (close)="showForgot = true; showLogin = false;" *ngIf="showLogin"></app-login>
-<app-forgot @myInsertRemoveTrigger *ngIf="showForgot"></app-forgot>
+<app-forgot (onback)="showForgot = false; showLogin = true;" @myInsertRemoveTrigger *ngIf="showForgot"></app-forgot>

@@ -16,8 +16,8 @@ import { Component, OnInit} from '@angular/core';
   ])],
 })
 export class AppComponent implements OnInit {
-  showLogin: boolean = true;
-  showForgot: boolean = false;
+  showLogin: boolean = false;
+  showForgot: boolean = true;
   w:any = null;
   h:any = null;
   constructor(){
