@@ -1,5 +1,5 @@
 import { transition, trigger, style, animate } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -15,10 +15,17 @@ import { Component } from '@angular/core';
     ])
   ])],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   showLogin: boolean = true;
   showForgot: boolean = false;
+  w:any = null;
+  h:any = null;
   constructor(){
 
+  }
+
+  ngOnInit(){
+    this.h = window.innerHeight;
+    this.w = window.innerWidth;
   }
 }
