@@ -28,4 +28,12 @@ export class AppComponent implements OnInit {
     this.h = window.innerHeight;
     this.w = window.innerWidth;
   }
+
+  getHeight(): string{
+    let response = '14px';
+    if(this.showLogin){
+      response = '30px';
+    }
+    return response;
+  }
 }
