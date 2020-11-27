@@ -44,9 +44,17 @@
      <!-- Holds the form for submit.. -->
      <div class="grid">
          <form>
+              <div class="msg">
+                <ul>
+                  <li>Please enter below an e-mail address associated with the account.</li>
+                  <li>You will receive a token which will allow to reset password.</li>
+                </ul>
+              </div>
+             
+              
              <div id="cntFRM">
                <div class="gridFRM">
-                 <app-input placeholder="ENTER USERNAME" type="text" name="username"></app-input>
+                 <app-input placeholder="ENTER E-MAIL" type="text" name="username"></app-input>
                </div>
                <div class="gridFRM">
                 <app-input placeholder="ENTER TOKEN" type="text" name="token"></app-input>

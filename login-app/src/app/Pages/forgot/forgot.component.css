@@ -39,6 +39,16 @@
      font-size: larger;
   }
 
+
+
+  .msg{
+    font-size: 15px;
+    font-weight: bold;
+    color: #3a3a3a;
+    position: absolute;
+    top: -10px;
+  }
+
   form{
     background: white;
     height: 232px;
@@ -52,8 +62,8 @@
     height: 120px;
     text-align: center;
     position: relative;
-    top: 90px;
-
+    top: 102px;
+   
   }
 
   .gridFRM{
