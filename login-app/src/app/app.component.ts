@@ -1,23 +1,25 @@
-import { transition, trigger, style, animate } from '@angular/animations';
+import { transition, trigger, style, animate, state } from '@angular/animations';
 import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [trigger('slideInOut', [
+  animations: [trigger('simpleFadeAnimation', [
+
+    
     transition(':enter', [
-      style({ transform: 'translateY(-100%)' }),
-      animate('900ms ease-in', style({ transform: 'translateY(0%)'})),
+      style({ opacity: 0 }),
+      animate(200),
     ]),
     transition(':leave', [
-      animate('200ms ease-in', style({ transform: 'translateY(-100%)' }))
+      animate(300, style({  transform: 'scale(0)' }))
     ])
   ])],
 })
 export class AppComponent implements OnInit {
-  showLogin: boolean = false;
-  showForgot: boolean = true;
+  showLogin: boolean = true;
+  showForgot: boolean = false;
   w:any = null;
   h:any = null;
   constructor(){

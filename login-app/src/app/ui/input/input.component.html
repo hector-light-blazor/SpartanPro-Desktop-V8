@@ -1,2 +1,2 @@
-<input [type]="type" [name]="name" 
-[placeholder]="placeholder" >
+<input [type]="type" #ele [(ngModel)]="value" (keydown)="emailFormat()" (blur)="emailFormat()" [name]="name" 
+[placeholder]="placeholder" [disabled]="disabled" [class]="class" [ngClass]="{'error': ifSymbol}"  >

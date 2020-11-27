@@ -1,9 +1,25 @@
-input[type="text"], input[type="password"]{
+input{
     width: 240px;
     height: 32px;
-    cursor: pointer;
-  }
 
-  input[type="text"]::placeholder, input[type="password"]::placeholder{
+}
+
+input::placeholder{
     text-align: center;
-  }
+}
+input:focus{
+  outline: 0;
+}
+.error{
+  color: red;
+  font-weight: bold;
+  border: 2px solid red;
+}
+.muted{
+  cursor: not-allowed;
+  border: 1px solid #d5cfcf73;
+}
+.muted::placeholder{
+
+  color: #d5cfcf62;
+}
