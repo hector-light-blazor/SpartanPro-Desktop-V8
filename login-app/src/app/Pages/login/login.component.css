@@ -145,7 +145,7 @@ span{
   #logoSP{
     position: relative;
     top:20px;
-    animation: flyInLogo 1s linear;
+    animation: flyInLogo 0.2s linear;
   }
 
   .titleApp{
@@ -153,7 +153,7 @@ span{
   }
 
   .svg-circle{
-    animation: popIn 1s ease-in;
+    animation: popIn 0.4s ease-in;
   }
 
   @keyframes popIn { 

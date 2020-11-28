@@ -128,7 +128,7 @@
   }
 
   .svg-circle{
-    animation: popIn 1s ease-in;
+    animation: popIn 0.5s ease-in;
   }
 
   @keyframes popIn { 
