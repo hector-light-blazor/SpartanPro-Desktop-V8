@@ -15,7 +15,9 @@ const spartan = new Controller(__dirname,
 
 
 // Making sure the app is ready for rendering..
-app.whenReady().then(spartan.start);
+app.whenReady().then(() => {
+  spartan.start();
+});
 
 //If all windows are close quit the app..
 app.on('window-all-closed', () => {

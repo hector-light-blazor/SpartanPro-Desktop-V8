@@ -5,11 +5,12 @@ class Splash {
         this.BrowserWindow = browser;
         this.screen = screen;
         this.root = root;
+        this.win = null;
         _self = this;
     }
 
     start() {
-        const win = new _self.BrowserWindow({
+        this.win = new _self.BrowserWindow({
             width: 1000,
             height: 680,
             frame: false,
@@ -20,14 +21,16 @@ class Splash {
             transparent: true
           })
 
-          win.loadURL(`file://${_self.root}/app/splash-app/index.html`)
+          this.win.loadURL(`file://${_self.root}/app/splash-app/index.html`)
     
-        win.once('ready-to-show', () =>{
-            win.center();
-            win.show();
+        this.win.once('ready-to-show', () =>{
+            this.win.center();
+            this.win.show();
          })
 
     }
+
+
      
 
 

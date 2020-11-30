@@ -14,13 +14,11 @@ class Controller{
             "TICKET" : null
          };
 
-        _self = this;
-
     }
 
     start(){
-        _self.splash.start();
-        _self.login.start();
+        this.win['Splash'].start();
+        this.win['Login'].start();
     }
     
     // Handle all the events from the browserwindows..
@@ -35,6 +33,13 @@ class Controller{
 
         })
 
+    }
+
+    showForm(page){
+        this.win[page].show();
+    }
+    closeForm(page){
+        this.win[page].close();
     }
 
 }
