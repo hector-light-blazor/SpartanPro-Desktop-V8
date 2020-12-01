@@ -10,6 +10,7 @@ class Login{
         this.height = 812;
         this.width = 375;
         this.win = null;
+        console.log(`LOGIN ${dir}`)
         _self = this;
     }
 
@@ -30,7 +31,10 @@ class Login{
             maximizable: false,
             resizable: false,
             transparent: true,
-            backgroundColor: "#00ffffff"
+            backgroundColor: "#00ffffff",
+            webPreferences: {
+                preload: `${this.root}/lib/preload.js`
+            }
         });
 
         this.win.loadURL('http://localhost:4200');
