@@ -1,6 +1,7 @@
 node_modules
 config.ini
-/electron/**/*.js
-/electron/lib/**/*.js
+electron/*.js
+electron/**/*.js
+./electron/lib/**/*.js
 
 
