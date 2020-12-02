@@ -29,6 +29,8 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     this.h = window.innerHeight;
     this.w = window.innerWidth;
+
+    window['ipc'].send("on:load", {'page': 'LOGIN'});
   }
 
   getHeight(): string{
