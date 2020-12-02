@@ -5,3 +5,7 @@ electron/**/*.js
 ./electron/lib/**/*.js
 
 
+*.js
+electron/lib/Controller/main.js
+electron/lib/Pages/login.js
+electron/lib/Pages/splash.js
