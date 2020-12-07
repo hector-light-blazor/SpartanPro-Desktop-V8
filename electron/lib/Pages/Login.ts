@@ -19,7 +19,6 @@ export default class Login{
             width: this.width,
             height: this.height,
             frame: false,
-            show: false,
             hasShadow: true,
             maximizable: false,
             resizable: false,
@@ -30,7 +29,13 @@ export default class Login{
             }
         })
 
-        this.win.loadURL('http://localhost:4200')
+        // Once ready tell the login page the root
+        this.win.once('ready-to-show', () => {
+            this.win.webContents.send("root", this.root);
+        });
+
+        this.win.loadURL(`file://${this.root}/app/login-app/index.html`)
+        //this.win.loadURL('http://localhost:4200')
     }
 
 
@@ -45,5 +50,9 @@ export default class Login{
 
     hide(){
         this.win.hide();
+    }
+
+    window(): BrowserWindow{
+        return this.win;
     }
 }

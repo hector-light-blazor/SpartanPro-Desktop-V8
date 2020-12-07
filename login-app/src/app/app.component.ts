@@ -1,6 +1,7 @@
 import { transition, trigger, style, animate, state } from '@angular/animations';
 import { Component, OnInit} from '@angular/core';
 
+declare var ipc: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
   showForgot: boolean = false;
   w:any = null;
   h:any = null;
+  hi: string;
   constructor(){
 
   }
@@ -29,8 +31,14 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     this.h = window.innerHeight;
     this.w = window.innerWidth;
+    ipc.on('root', (data) => {
+      this.hi = data;
+    });
+    ipc.on('on:local', (data) => {
+      this.hi = data;
+      alert(data);
+    });
 
-    window['ipc'].send("on:load", {'page': 'LOGIN'});
   }
 
   getHeight(): string{
