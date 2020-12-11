@@ -6,7 +6,7 @@
   }
 
 </style>
-<!-- <label>window: {{w}} <br> Height: {{h}}</label> -->
+<label>msg from renderer: {{hi}}</label>
 <app-draggable [height]="getHeight()"></app-draggable>
 <app-login *ngIf="showLogin" [@simpleFadeAnimation]="'in'" (close)="showForgot = true; showLogin = false;" ></app-login>
 <app-forgot (onback)="showForgot = false; showLogin = true;" *ngIf="showForgot" [@simpleFadeAnimation]="'in'" ></app-forgot>

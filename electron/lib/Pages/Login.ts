@@ -4,7 +4,7 @@ export default class Login{
 
     root: String;
     height: number = 812;
-    width: number = 375;
+    width: number = 8000//375;
     win: BrowserWindow;
 
     constructor(root: String)
@@ -29,13 +29,15 @@ export default class Login{
             }
         })
 
+        this.win.webContents.openDevTools();
+
         // Once ready tell the login page the root
         this.win.once('ready-to-show', () => {
             this.win.webContents.send("root", this.root);
         });
 
-        this.win.loadURL(`file://${this.root}/app/login-app/index.html`)
-        //this.win.loadURL('http://localhost:4200')
+        //this.win.loadURL(`file://${this.root}/app/login-app/index.html`)
+        this.win.loadURL('http://localhost:4200')
     }
 
 
@@ -52,7 +54,8 @@ export default class Login{
         this.win.hide();
     }
 
-    window(): BrowserWindow{
-        return this.win;
+    send(event, data){
+        this.win.webContents.send(event, data);
     }
+
 }

@@ -1,7 +1,6 @@
 import { transition, trigger, style, animate, state } from '@angular/animations';
 import { Component, OnInit} from '@angular/core';
 
-declare var ipc: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -31,11 +30,12 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     this.h = window.innerHeight;
     this.w = window.innerWidth;
-    ipc.on('root', (data) => {
-      this.hi = data;
+    console.log(window['ipc']);
+    window['ipc'].on('root', (data) => {
+      this.hi = 'hello';
     });
-    ipc.on('on:local', (data) => {
-      this.hi = data;
+    window['ipc'].on('on:local', (data) => {
+      this.hi = 'hello two';
       alert(data);
     });
 

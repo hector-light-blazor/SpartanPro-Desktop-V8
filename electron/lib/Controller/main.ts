@@ -1,5 +1,4 @@
-import Login from "../Pages/Login";
-import Splash from "../Pages/Splash";
+import Window from "../Controller/Window";
 import {ipcMain, BrowserWindow} from "electron";
 import  * as io from "socket.io-client";
 import Knex = require("knex");
@@ -10,7 +9,7 @@ var ini = require("ini");
 
 export default class Main{
     root: String;
-    win: any;
+    win: Page;
     loSocket: typeof io.Socket;
     remoteSocket: typeof io.Socket;
     localNetwork: boolean = false;
@@ -22,10 +21,21 @@ export default class Main{
         this.root = root;
         this.shell = (process.platform == "win32") ? require('node-powershell') : null;
         this.win = {
-            "Main": null,
-            "SPLASH" : new Splash(root),
-            "LOGIN": new Login(root),
-            "Profile": null,
+            "MAIN": new Window(root,Spartan.name,
+                Spartan.width, Spartan.height,
+                Spartan.url, true),
+            "SPLASH" : new Window(root, Splash.name, 
+                Splash.width, Splash.height,
+                `file://${root}/${Splash.url}`
+                
+                ), //new Splash(root),
+            "LOGIN": 
+            new Window(root, Login.name,
+            Login.width, Login.height, 
+            `file://${root}/${Login.url}`
+            ),
+            //new Login(root),
+            "PROFILE": null,
             "GIS" : null,
             "TICKET" : null
         }
@@ -34,15 +44,14 @@ export default class Main{
 
         //Read the configuration file.
         this.config = ini.parse(fs.readFileSync(`${root}/app/config/config.ini`));
-        
-        this.setupDBCON();
-        this.ipcEvents();
-        
     }
 
     startApp(){
-        this.win['SPLASH'].start();
-        this.win['LOGIN'].start();
+        this.win.MAIN.start();
+        //this.win['SPLASH'].start();
+        //this.win['LOGIN'].start();
+       // this.setupDBCON();
+       // this.ipcEvents();
     }
 
 
@@ -64,7 +73,6 @@ export default class Main{
             if(result){
                 console.log("I FOUND DNS")
                 _self.localNetwork = true;
-
                 _self.pg =  Knex({
                     client: 'pg',
                     connection: {
@@ -86,16 +94,15 @@ export default class Main{
 
     ipcEvents() {
         ipcMain.on("window:action", (event, data) =>{
-
+            if(data.page == "login" && data.load){
+                this.win.LOGIN.send('on:local', this.localNetwork);
+            }
         })
 
     }
 
     notifyAllPages(){
-        console.log("I am going to notify all pages that local network")
-        const loginWin: BrowserWindow = this.win.LOGIN.window()
-        loginWin.webContents.send('on:local', this.localNetwork);
-        
+       this.win.LOGIN.send('on:local', this.localNetwork);
     }
 
     showForm(page:any){
@@ -106,4 +113,34 @@ export default class Main{
         this.win[page].close();
     }
     
+}
+
+interface Page{
+    MAIN: Window,
+    LOGIN: Window,
+    SPLASH: Window,
+    PROFILE: any,
+    GIS: any,
+    TICKET: any
+}
+
+enum Spartan{
+    name = "SPARTAN",
+    width = 1923,
+    height = 1196,
+    url = "http://localhost:4200",
+}
+
+enum Splash {
+    name = "SPLASH",
+    width = 1000,
+    height = 680,
+    url = "app/splash-app/index.html"
+}
+
+enum Login {
+    name = "LOGIN",
+    width = 375,
+    height = 812,
+    url = "app/login-app/index.html"
 }

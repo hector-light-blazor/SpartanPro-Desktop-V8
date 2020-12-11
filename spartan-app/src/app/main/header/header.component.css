@@ -1,0 +1,8 @@
+
+.header{
+    border-top-right-radius: 20px;
+    border: 2px solid #7070705e;
+    background:#FFFFFF;
+    box-shadow:5px 10px #888888;
+    height: 48px;
+}

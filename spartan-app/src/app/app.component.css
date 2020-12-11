@@ -1,0 +1,11 @@
+.cntMain{
+    display: flex;
+    border-radius: 20px;
+    background-color: #f7f7f7;
+    height: 680px;
+}
+
+.content {
+    background-color: #F7F7F7;
+    border-bottom-right-radius: 20px;
+}

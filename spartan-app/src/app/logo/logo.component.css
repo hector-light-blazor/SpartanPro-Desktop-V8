@@ -1,0 +1,10 @@
+#logo{
+    margin-top: 8px;
+    width:  170px;
+    height: 130px;
+    justify-content: center;
+    text-align: center;
+}
+span {
+    font-size: 12px;
+}
